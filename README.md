@@ -102,7 +102,7 @@ As classes P, NP, NP-Completo e NP-Difícil são categorias utilizadas na ciênc
 
 1. O problema do caminho hamiltoniano se enquadra na classe NP-Completo.
 
-2. A classe NP foca em problemas cujas soluções podem ser verificadas rapidamente, ainda que encontrar a solução não seja necessariamente rápido. Os problemas NP-Completo representam os desafios mais difíceis dentro de NP, sendo que resolver um deles eficientemente significaria resolver todos os outros problemas de NP da mesma forma.
+2. A classe 𝑁𝑃 contém problemas de decisão cujas soluções podem ser verificadas em tempo polinomial `O(n^k)` por um algoritmo determinístico. Os problemas 𝑁𝑃-Completos são um subconjunto de 𝑁𝑃 com duas características principais: pertencem à classe 𝑁𝑃, ou seja, suas soluções podem ser verificadas em tempo polinomial e são 𝑁𝑃-Difíceis, ou seja, todo problema em 𝑁𝑃 pode ser reduzido a eles em tempo polinomial.
 
 ### Análise da complexidade assintótica de tempo
 
