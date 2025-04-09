@@ -140,7 +140,7 @@ Ou seja, ela representa a **permutação dos vértices**, e resulta em complexid
 
 ### Análise dos casos de complexidade
 
-1.
+1.Os casos de complexidade de _hamiltonian_.
 
 - No pior caso, o algoritmo percorre todas as 𝑛! permutações e não acha um caminho hamiltoniano, de complexidade `O(n!)`.
 - No caso médio, o algoritmo explora diversas combinações antes de encontrar um caminho que satisfaça a condição do caminho hamiltoniano, de complexidade `O(n!)`.
@@ -148,4 +148,4 @@ Ou seja, ela representa a **permutação dos vértices**, e resulta em complexid
 
 2. Essas diferenças impactam no desempenho do algoritmo, de modo que pode se tornar inviável em um grafo de 15 a 20 vértices devido à complexidade fatorial do pior caso. Essas inconsistências também demonstram um desempenho imprevisível do algoritmo, visto que, para alguns grafos, o algoritmo pode encontrar rapidamente um caminho, mas para grafos esparsos, pode demorar muito e/ou nem encontrar um caminho.
 
-A complexidade também deixa claro que este algoritmo é limitado, já que a complexidade fatorial torna impraticável o uso deste em grafos grandes.
+   A complexidade também deixa claro que este algoritmo é limitado, já que a complexidade fatorial torna impraticável o uso deste em grafos grandes.
