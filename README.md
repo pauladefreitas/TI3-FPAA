@@ -118,16 +118,25 @@ Sendo assim, encontrando uma solução para o problema do caminho hamiltoniano, 
 
 ### Teorema Mestre
 
-- É possível aplicar?
+O Teorema Mestre não é aplicável neste caso.
 
-Não.
+O **Teorema Mestre** é uma ferramenta para resolver **recorrências de algoritmos recursivos**, esse tipo de recorrência aparece em **algoritmos divide-and-conquer**.
 
-Justificativa:
-O Teorema Mestre é usado para resolver recorrências do tipo divide-and-conquer, como:
+Onde:
+- `a` é o número de subproblemas;
+- `b` é o tamanho de cada subproblema;
+- `f(n)` é o custo de combinar os resultados.
 
-T(n)=a⋅T(n/b)+f(n)
-O algoritmo de Caminho Hamiltoniano não divide o problema em subproblemas menores do mesmo tipo.
+2. O algoritmo utilizado para encontrar um caminho Hamiltoniano é um **backtracking** puro, com as seguintes características: ele não divide o problema em subproblemas de tamanho n/b, ele **explora todas as combinações possíveis de caminhos** e sua recorrência não segue o padrão necessário para aplicar o Teorema Mestre.
 
-Ele usa backtracking puro, o que leva a uma recorrência não uniforme baseada em ramificações, e não em divisões regulares.
+A recorrência associada é mais parecida com:
 
-Portanto, o Teorema Mestre não se aplica.
+$$
+T(n) = n \cdot T(n - 1)
+$$
+
+Ou seja, ela representa a **permutação dos vértices**, e resulta em complexidade `O(n!)`, que cresce muito mais rápido do que qualquer função polinomial ou mesmo exponencial do tipo `aT(n/b)`.
+
+### Análise dos casos de complexidade
+
+1. 
