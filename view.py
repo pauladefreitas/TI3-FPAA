@@ -18,19 +18,31 @@ def hamiltonian(graph, current, path, visited):
 
     return None
 
-def plot_graph(graph_dict, oriented):
-    if oriented:
-        G = nx.DiGraph()
-    else:
-        G = nx.Graph()
+def plot_graph(graph_dict, oriented, hamiltonian_path=None):
+    G = nx.DiGraph() if oriented else nx.Graph()
 
     for node, neighbors in graph_dict.items():
         for neighbor in neighbors:
             G.add_edge(node, neighbor)
 
-    pos = nx.spring_layout(G)
-    nx.draw(G, pos, with_labels=True, node_color='skyblue', edge_color='gray', node_size=1500, font_size=16)
-    plt.title("Grafo")
+    pos = nx.spring_layout(G, seed=42)
+    edge_colors = []
+
+    hamiltonian_edges = set()
+    if hamiltonian_path:
+        for i in range(len(hamiltonian_path) - 1):
+            u, v = hamiltonian_path[i], hamiltonian_path[i + 1]
+            hamiltonian_edges.add((u, v))
+
+    for edge in G.edges():
+        if edge in hamiltonian_edges or (not oriented and (edge[1], edge[0]) in hamiltonian_edges):
+            edge_colors.append('red')
+        else:
+            edge_colors.append('yellow')
+
+    nx.draw(G, pos, with_labels=True, node_color='skyblue', edge_color=edge_colors,
+            node_size=1500, font_size=16, arrows=oriented)
+    plt.title("Grafo com caminho hamiltoniano (arestas vermelhas)")
     plt.show()
 
 def main():
@@ -49,12 +61,11 @@ def main():
         if not oriented:
             graph[v].append(u)
 
-    plot_graph(graph, oriented)
-
     begin = int(input("Vértice inicial: "))
     path = [begin]
     visited = {begin}
 
+    plot_graph(graph, oriented)
     result = hamiltonian(graph, begin, path, visited)
     if result:
         print("Caminho hamiltoniano encontrado:", result)
