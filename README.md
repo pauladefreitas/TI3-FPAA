@@ -98,22 +98,23 @@ Assim, novos caminhos podem ser testados.
 
 ### Análise da complexidade computacional
 
-As classes P, NP, NP-Completo e NP-Difícil são categorias utilizadas na ciência da computação teórica para classificar problemas de acordo com a dificuldade de resolvê-los ou verificar suas soluções.
+As classes P, NP, NP-Completo e NP-Difícil são categorias utilizadas na ciência da computação teórica para classificar problemas de acordo com a dificuldade de resolvê-los ou verificar suas soluções. Ou seja, para estudo teórico da complexidade de algoritmos, considera-se problemas cujo resultado da computação seja sim ou não.
 
 1. O problema do caminho hamiltoniano se enquadra na classe NP-Completo.
 
-2. A classe 𝑁𝑃 contém problemas de decisão cujas soluções podem ser verificadas em tempo polinomial `O(n^k)` por um algoritmo determinístico. Os problemas 𝑁𝑃-Completos são um subconjunto de 𝑁𝑃 com duas características principais: pertencem à classe 𝑁𝑃, ou seja, suas soluções podem ser verificadas em tempo polinomial e são 𝑁𝑃-Difíceis, ou seja, todo problema em 𝑁𝑃 pode ser reduzido a eles em tempo polinomial.
+2. A classe 𝑁𝑃 contém problemas de decisão cujas soluções podem ser verificadas em tempo polinomial `O(n^k)` por um algoritmo determinístico.
+
+Os problemas 𝑁𝑃-Completos são um subconjunto de 𝑁𝑃 com duas características principais: pertencem à classe 𝑁𝑃, ou seja, suas soluções podem ser verificadas em tempo polinomial e são 𝑁𝑃-Difíceis, o que significa que todo problema em 𝑁𝑃 pode ser reduzido a eles em tempo polinomial.
+
+Um problema é NP-completo se ele é tanto NP como NP-difícil. Em outras palavras, um problema NP-completo é um problema em NP para o qual se pode mostrar que todos os problemas em NP podem ser reduzidos a ele em tempo polinomial. Resolver qualquer problema NP-completo eficientemente implicaria em resolver eficientemente todos os problemas em NP e, portanto, P seria igual a NP.
+
+Sendo assim, encontrando uma solução para o problema do caminho hamiltoniano, encontra-se, também, uma solução para o problema do caixeiro viajante, visto que qualquer problema em 𝑁𝑃 pode ser reduzido a ele. O problema do caixeiro viajante encontra um caminho eficiente que percorre um conjunto de cidades exatamente uma vez, retornando ao ponto de partida, com o menor custo total possível. Como sua versão de decisão é NP-completa, uma solução polinomial para esse problema também resolveria, indiretamente, todos os outros problemas em NP, evidenciando a importância desse problema no estudo da complexidade computacional.
 
 ### Análise da complexidade assintótica de tempo
 
 1. A complexidade é O(n!), onde n é o número de vértices.
 
-2. Método: Contagem de operações e análise combinatória.
-   O algoritmo tenta todas as permutações possíveis de vértices.
-
-Cada permutação representa um caminho potencial.
-
-Como existem n! permutações possíveis, e cada uma exige verificação (se os vértices são conectados), o tempo de execução cresce como O(n!).
+2. O algoritmo explora todas as 𝑛! permutações possíveis das 𝑛 vértices. Para cada permutação, ele calcula o custo total do percurso, resultando em 𝑛! operações principais. Essa análise é baseada na contagem de operações, pois o número de permutações domina o comportamento do algoritmo.
 
 ### Teorema Mestre
 
